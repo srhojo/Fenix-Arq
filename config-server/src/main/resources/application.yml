@@ -1,0 +1,17 @@
+server:
+  port: 8888
+  
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          #uri: file:///${user.dir}\..\config.repo\
+          uri: file:///J:\Tests\FenixArq\config.repo\
+          search-paths:
+          - DEV
+          force-pull: false
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
