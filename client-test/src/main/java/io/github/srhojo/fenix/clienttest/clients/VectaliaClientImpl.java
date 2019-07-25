@@ -9,11 +9,10 @@ import java.util.List;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
-import com.srhojo.utils.restclient.client.RestClient;
-import com.srhojo.utils.restclient.entities.NameValuePair;
-import com.srhojo.utils.restclient.impl.RestClientBuilderExecutor;
-
 import io.github.srhojo.fenix.clienttest.clients.entities.VectaliaStop;
+import io.github.srhojo.utils.restclient.client.RestClient;
+import io.github.srhojo.utils.restclient.entities.NameValuePair;
+import io.github.srhojo.utils.restclient.impl.RestClientBuilderExecutor;
 
 /**
  * @author jrlh
