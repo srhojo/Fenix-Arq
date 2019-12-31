@@ -1,17 +1,14 @@
 package io.github.srhojo.fenix.clienttest.api;
 
-import org.springframework.cloud.openfeign.FeignClient;
+import io.github.srhojo.fenix.clienttest.clients.entities.VectaliaStop;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import io.github.srhojo.fenix.clienttest.clients.entities.VectaliaStop;
-
 /**
  * @author jrlh
- *
  */
 
-@FeignClient(name = "client-test")
+//@FeignClient(name = "client-test")
 public interface ClientTestApi {
 
     @GetMapping("/test/common-property")

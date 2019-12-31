@@ -7,7 +7,7 @@ spring:
       server:
         git:
           #uri: file:///${user.dir}\..\config.repo\
-          uri: file:///J:\Tests\FenixArq\config.repo\
+          uri: file:///J:\github\Fenix-Arq\config.repo\
           search-paths:
           - DEV
           force-pull: false

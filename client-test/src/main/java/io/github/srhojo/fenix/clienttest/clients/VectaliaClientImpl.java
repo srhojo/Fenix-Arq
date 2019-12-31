@@ -3,16 +3,18 @@
  */
 package io.github.srhojo.fenix.clienttest.clients;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.http.HttpMethod;
-import org.springframework.stereotype.Component;
-
 import io.github.srhojo.fenix.clienttest.clients.entities.VectaliaStop;
+import io.github.srhojo.fenix.microservices.exceptions.FenixException;
 import io.github.srhojo.utils.restclient.client.RestClient;
 import io.github.srhojo.utils.restclient.entities.NameValuePair;
+import io.github.srhojo.utils.restclient.exceptions.RestClientException;
 import io.github.srhojo.utils.restclient.impl.RestClientBuilderExecutor;
+import org.springframework.http.HttpMethod;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestClientResponseException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author jrlh
@@ -36,8 +38,15 @@ public class VectaliaClientImpl implements VectaliaClient {
         queryParams.add(NameValuePair.of("__internal__", "1"));
         queryParams.add(NameValuePair.of("code", id));
 
-        return RestClientBuilderExecutor.of(restClient).url(vectaliaApiUrl).method(HttpMethod.GET)
-                .withQueryParams(queryParams).withResponseType(VectaliaStop.class).execute();
+        try {
+            return RestClientBuilderExecutor.of(restClient).url(vectaliaApiUrl).method(HttpMethod.GET)
+                    .withQueryParams(queryParams).withResponseType(VectaliaStop.class).execute();
+
+        } catch (RestClientException rce) {
+
+            final RestClientResponseException response = (RestClientResponseException) rce.getDetails();
+            throw new FenixException(rce.getStatus(),rce.getCode(),response.getMessage());
+        }
     }
 
 }

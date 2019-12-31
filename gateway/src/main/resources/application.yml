@@ -9,6 +9,9 @@ zuul:
     client-test:
       path: /client-test/**
       serviceId: client-test
+    client-edge:
+      path: /client-edge/**
+      serviceId: client-edge
 
 ribbon:
   ConnectTimeout: 3000
@@ -25,3 +28,6 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
 
+swagger:
+  config:
+    refreshrate: 5000

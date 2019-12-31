@@ -12,8 +12,8 @@ public class ClientTestController implements ClientTestApi {
 
     private final VectaliaClient vectaliaClient;
 
-    @Value("${com.fenix.test.texto}")
-    private String commonString;
+    //@Value("${com.fenix.test.texto}")
+    //private String commonString;
 
     @Value("${com.fenix.client-test.title}")
     private String title;
@@ -24,7 +24,7 @@ public class ClientTestController implements ClientTestApi {
 
     @Override
     public String commonPropertiesTest() {
-        return commonString;
+        return "commonString";
     }
 
     @Override
